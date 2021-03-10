@@ -8,8 +8,7 @@ var db_1 = __importDefault(require("../db"));
 var getTeams = function () {
     var sql = 'SELECT * FROM teams;';
     return db_1.default.query(sql).then(function (res) {
-        console.log(res);
-        return res;
+        return res.rows;
     });
 };
 exports.getTeams = getTeams;

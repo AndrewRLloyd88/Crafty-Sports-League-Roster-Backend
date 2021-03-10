@@ -4,8 +4,7 @@ const getTeams = () => {
   const sql = 'SELECT * FROM teams;';
 
   return pool.query(sql).then((res) => {
-    console.log(res);
-    return res;
+    return res.rows;
   });
 };
 
