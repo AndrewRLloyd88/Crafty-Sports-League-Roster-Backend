@@ -1,0 +1,16 @@
+insert into teams (id, team_name) values (1, 'Pole Position');
+insert into teams (id, team_name) values (2, 'The V8’s');
+insert into teams (id, team_name) values (3, 'Overdrive');
+insert into teams (id, team_name) values (4, 'Brake Dancers');
+insert into teams (id, team_name) values (5, 'The Burnouts');
+insert into teams (id, team_name) values (6, 'Pedal Pushers');
+insert into teams (id, team_name) values (7, 'Crash Test Dummies');
+insert into teams (id, team_name) values (8, 'Speed Demons');
+insert into teams (id, team_name) values (9, 'Road Blocks');
+insert into teams (id, team_name) values (10, 'Full Throttle');
+insert into teams (id, team_name) values (11, 'Sparks');
+insert into teams (id, team_name) values (12, 'Hot Rods');
+insert into teams (id, team_name) values (13, 'Burnt Rubber');
+insert into teams (id, team_name) values (14, 'Victory Lap');
+insert into teams (id, team_name) values (15, 'Speed of Light');
+insert into teams (id, team_name) values (16, 'Burnin’ Rubber');
