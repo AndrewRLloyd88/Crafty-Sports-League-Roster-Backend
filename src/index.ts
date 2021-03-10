@@ -18,6 +18,6 @@ app.use('/', teamsRoute);
 
 app.use('/players', playersRoute);
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Listening on Port ${port}`);
 });

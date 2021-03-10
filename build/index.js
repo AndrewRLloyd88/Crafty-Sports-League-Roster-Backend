@@ -35,6 +35,6 @@ app.use(cors_1.default());
 app.use(morgan_1.default('dev'));
 app.use('/', teamsRoute_1.teamsRoute);
 app.use('/players', playersRoute_1.playersRoute);
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log("Listening on Port " + port);
 });
