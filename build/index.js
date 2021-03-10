@@ -28,10 +28,12 @@ console.log(process.env.DB_USER);
 var express_1 = __importDefault(require("express"));
 var morgan_1 = __importDefault(require("morgan"));
 var teamsRoute_1 = require("./routes/teamsRoute");
+var playersRoute_1 = require("./routes/playersRoute");
 var app = express_1.default();
 var port = process.env.PORT || 3000;
 app.use(morgan_1.default('dev'));
 app.use('/', teamsRoute_1.teamsRoute);
+app.use('/players', playersRoute_1.playersRoute);
 app.listen(3000, function () {
     console.log("Listening on Port " + port);
 });
