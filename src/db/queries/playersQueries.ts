@@ -41,12 +41,10 @@ const deletePlayerById = (id: number) => {
 };
 
 //TODO Create Player and type player properly
-const createPlayerWithTeam = (player: any) => {
+const createPlayerWithTeam = (player_name: string, team_id: number) => {
   //TODO test out these values and modify as needed
-  const player_name = player.name;
-  const team_id = player.team_ID;
   const sql = `
-  insert into players (id, player_name, team_ID) values ($1, $2) RETURNING *;
+  insert into players (player_name, team_ID) values ($1, $2) RETURNING *;
   `;
 
   return pool.query(sql, [player_name, team_id]).then((response) => {
@@ -54,4 +52,4 @@ const createPlayerWithTeam = (player: any) => {
   });
 };
 
-export { getPlayers, getPlayerByName, deletePlayerById };
+export { getPlayers, getPlayerByName, deletePlayerById, createPlayerWithTeam };

@@ -18,8 +18,14 @@ router.get('/', function (req, res) {
     });
 });
 router.post('/', function (req, res) {
-    console.log(req.body);
-    res.send('hi');
+    var _a = req.body, player_name = _a.player_name, team_ID = _a.team_ID;
+    playersQueries_1.createPlayerWithTeam(player_name, team_ID)
+        .then(function (newPlayer) {
+        res.send(newPlayer);
+    })
+        .catch(function (err) {
+        console.log(err);
+    });
 });
 router.get('/:id', function (req, res) {
     var query = req.params.id;

@@ -33,4 +33,4 @@ insert into players (id, player_name, team_ID) values (32, 'Valaree Sheppey', 16
 insert into players (id, player_name, team_ID) values (33, 'Laurel Vanshin', 16);
 insert into players (id, player_name, team_ID) values (34, 'Juline Thomerson', 16);
 insert into players (id, player_name, team_ID) values (35, 'Dene Clerke', 16);
-
+SELECT setval(pg_get_serial_sequence('players', 'id'), coalesce(max(id)+1, 1), false) FROM players;

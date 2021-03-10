@@ -3,6 +3,7 @@ import {
   getPlayers,
   getPlayerByName,
   deletePlayerById,
+  createPlayerWithTeam,
 } from '../db/queries/playersQueries';
 const router = express.Router();
 
@@ -17,8 +18,14 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.post('/', (req: Request, res: Response) => {
-  console.log(req.body);
-  res.send('hi');
+  const { player_name, team_ID } = req.body;
+  createPlayerWithTeam(player_name, team_ID)
+    .then((newPlayer) => {
+      res.send(newPlayer);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 router.get('/:id', (req: Request, res: Response) => {

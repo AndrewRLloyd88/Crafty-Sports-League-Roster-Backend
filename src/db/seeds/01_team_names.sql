@@ -15,3 +15,4 @@ insert into teams (id, team_name) values (14, 'Victory Lap');
 insert into teams (id, team_name) values (15, 'Speed of Light');
 insert into teams (id, team_name) values (16, 'Burnin’ Rubber');
 insert into teams (id, team_name) values (17, 'The Jack Flashes');
+SELECT setval(pg_get_serial_sequence('teams', 'id'), coalesce(max(id)+1, 1), false) FROM teams;
