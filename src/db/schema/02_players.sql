@@ -4,5 +4,8 @@
 DROP TABLE IF EXISTS players CASCADE;
 CREATE TABLE players (
   id                SERIAL PRIMARY KEY NOT NULL,
-  player_name       VARCHAR(255) NOT NULL
+  player_name       VARCHAR(255) NOT NULL,
+  team_ID           INT,
+  CONSTRAINT fk_team
+  FOREIGN KEY (team_ID) REFERENCES teams(id)
 );

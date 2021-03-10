@@ -11,7 +11,6 @@ const Client = pg.Client;
 const config =
   process.env.DATABASE_URL ||
   `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
-console.log(config);
 const client = new Client(config);
 
 client.connect(() => {

@@ -14,3 +14,4 @@ insert into teams (id, team_name) values (13, 'Burnt Rubber');
 insert into teams (id, team_name) values (14, 'Victory Lap');
 insert into teams (id, team_name) values (15, 'Speed of Light');
 insert into teams (id, team_name) values (16, 'Burnin’ Rubber');
+insert into teams (id, team_name) values (17, 'The Jack Flashes');

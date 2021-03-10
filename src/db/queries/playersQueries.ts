@@ -4,7 +4,8 @@ const getPlayers = () => {
   const sql = `
   select players.player_name, teams.team_name
   from Players
-  Join teams on players.team_ID = teams.id;
+ Left Join teams on players.team_ID = teams.id
+ORDER BY players;
   `;
 
   return pool.query(sql).then((res) => {
@@ -12,4 +13,18 @@ const getPlayers = () => {
   });
 };
 
-export { getPlayers };
+const getPlayerByName = (term: string) => {
+  const sql = `
+  select players.player_name, teams.team_name
+  from Players
+ Left Join teams on players.team_ID = teams.id
+ WHERE players.player_name = '${term}'
+ORDER BY players;
+  `;
+
+  return pool.query(sql).then((res) => {
+    return res.rows;
+  });
+};
+
+export { getPlayers, getPlayerByName };
