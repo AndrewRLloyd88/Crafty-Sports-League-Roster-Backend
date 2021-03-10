@@ -5,7 +5,7 @@ const getPlayers = () => {
   select players.player_name, teams.team_name
   from Players
  Left Join teams on players.team_ID = teams.id
-ORDER BY players;
+ORDER BY teams.team_name;
   `;
 
   return pool.query(sql).then((res) => {
