@@ -1,20 +1,19 @@
-import { DotenvConfigOptions } from 'dotenv';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+console.log(process.env.DB_USER);
+
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import { teamsRoute } from './routes/teamsRoute';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
 
-app.get('/', (req: Request, res: Response) => {
-  res.send(`
-  <div>
-  <h1>Hi There!</h1>
-  <div>
-  `);
-});
+app.use('/', teamsRoute);
 
 app.listen(3000, () => {
   console.log(`Listening on Port ${port}`);
