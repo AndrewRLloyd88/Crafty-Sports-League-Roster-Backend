@@ -33,9 +33,9 @@ exports.deletePlayerById = deletePlayerById;
 var createPlayerWithTeam = function (player) {
     //TODO test out these values and modify as needed
     var player_name = player.name;
-    var team_name = player.team_name;
+    var team_id = player.team_ID;
     var sql = "\n  insert into players (id, player_name, team_ID) values ($1, $2) RETURNING *;\n  ";
-    return db_1.default.query(sql, [player_name, team_name]).then(function (response) {
+    return db_1.default.query(sql, [player_name, team_id]).then(function (response) {
         return response.rows;
     });
 };

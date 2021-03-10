@@ -44,12 +44,12 @@ const deletePlayerById = (id: number) => {
 const createPlayerWithTeam = (player: any) => {
   //TODO test out these values and modify as needed
   const player_name = player.name;
-  const team_name = player.team_name;
+  const team_id = player.team_ID;
   const sql = `
   insert into players (id, player_name, team_ID) values ($1, $2) RETURNING *;
   `;
 
-  return pool.query(sql, [player_name, team_name]).then((response) => {
+  return pool.query(sql, [player_name, team_id]).then((response) => {
     return response.rows;
   });
 };
