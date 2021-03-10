@@ -24,7 +24,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var dotenv = __importStar(require("dotenv"));
 dotenv.config();
-console.log(process.env.DB_USER);
 var express_1 = __importDefault(require("express"));
 var morgan_1 = __importDefault(require("morgan"));
 var teamsRoute_1 = require("./routes/teamsRoute");
