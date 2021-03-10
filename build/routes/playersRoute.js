@@ -37,3 +37,6 @@ router.delete('/:id', function (req, res) {
         console.log(err);
     });
 });
+router.post('/players', function (req, res) {
+    console.log(req.body.params);
+});

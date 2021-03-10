@@ -1,5 +1,6 @@
 import pool from '../db';
 
+//get all players and their associated teams
 const getPlayers = () => {
   const sql = `
   select players.player_name, players.id, teams.team_name
@@ -13,6 +14,7 @@ ORDER BY teams.team_name;
   });
 };
 
+//search for an individual player by name
 const getPlayerByName = (term: string) => {
   const sql = `
   select players.player_name, players.id, teams.team_name
@@ -27,6 +29,7 @@ ORDER BY players;
   });
 };
 
+//delete player using their ID
 const deletePlayerById = (id: number) => {
   const sql = `
   DELETE FROM players WHERE id=${id};
@@ -34,6 +37,20 @@ const deletePlayerById = (id: number) => {
 
   return pool.query(sql).then((res) => {
     return res;
+  });
+};
+
+//TODO Create Player and type player properly
+const createPlayerWithTeam = (player: any) => {
+  //TODO test out these values and modify as needed
+  const player_name = player.name;
+  const team_name = player.team_name;
+  const sql = `
+  insert into players (id, player_name, team_ID) values ($1, $2) RETURNING *;
+  `;
+
+  return pool.query(sql, [player_name, team_name]).then((response) => {
+    return response.rows;
   });
 };
 

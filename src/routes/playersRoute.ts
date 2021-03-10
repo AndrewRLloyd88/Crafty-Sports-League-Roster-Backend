@@ -38,4 +38,8 @@ router.delete('/:id', (req: Request, res: Response) => {
     });
 });
 
+router.post('/players', (req: Request, res: Response) => {
+  console.log(req.body.params);
+});
+
 export { router as playersRoute };
