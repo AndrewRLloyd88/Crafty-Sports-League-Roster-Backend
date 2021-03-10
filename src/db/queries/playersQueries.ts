@@ -27,4 +27,14 @@ ORDER BY players;
   });
 };
 
-export { getPlayers, getPlayerByName };
+const deletePlayerById = (id: number) => {
+  const sql = `
+  DELETE FROM players WHERE id=${id};
+`;
+
+  return pool.query(sql).then((res) => {
+    return res;
+  });
+};
+
+export { getPlayers, getPlayerByName, deletePlayerById };

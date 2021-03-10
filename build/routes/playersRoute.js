@@ -27,3 +27,13 @@ router.get('/:id', function (req, res) {
         console.log(err);
     });
 });
+router.delete('/:id', function (req, res) {
+    var id = parseInt(req.params.id);
+    playersQueries_1.deletePlayerById(id)
+        .then(function (player) {
+        res.send(player);
+    })
+        .catch(function (err) {
+        console.log(err);
+    });
+});

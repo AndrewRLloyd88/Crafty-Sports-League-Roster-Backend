@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPlayerByName = exports.getPlayers = void 0;
+exports.deletePlayerById = exports.getPlayerByName = exports.getPlayers = void 0;
 var db_1 = __importDefault(require("../db"));
 var getPlayers = function () {
     var sql = "\n  select players.player_name, players.id, teams.team_name\n  from Players\n Left Join teams on players.team_ID = teams.id\nORDER BY teams.team_name;\n  ";
@@ -19,3 +19,10 @@ var getPlayerByName = function (term) {
     });
 };
 exports.getPlayerByName = getPlayerByName;
+var deletePlayerById = function (id) {
+    var sql = "\n  DELETE FROM players WHERE id=" + id + ";\n";
+    return db_1.default.query(sql).then(function (res) {
+        return res;
+    });
+};
+exports.deletePlayerById = deletePlayerById;

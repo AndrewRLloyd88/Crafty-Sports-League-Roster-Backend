@@ -1,5 +1,9 @@
 import express, { Router, Request, Response } from 'express';
-import { getPlayers, getPlayerByName } from '../db/queries/playersQueries';
+import {
+  getPlayers,
+  getPlayerByName,
+  deletePlayerById,
+} from '../db/queries/playersQueries';
 const router = express.Router();
 
 router.get('/', (req: Request, res: Response) => {
@@ -15,6 +19,17 @@ router.get('/', (req: Request, res: Response) => {
 router.get('/:id', (req: Request, res: Response) => {
   const query = req.params.id;
   getPlayerByName(query)
+    .then((player) => {
+      res.send(player);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.delete('/:id', (req: Request, res: Response) => {
+  const id: number = parseInt(req.params.id);
+  deletePlayerById(id)
     .then((player) => {
       res.send(player);
     })
