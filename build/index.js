@@ -31,6 +31,8 @@ var teamsRoute_1 = require("./routes/teamsRoute");
 var playersRoute_1 = require("./routes/playersRoute");
 var app = express_1.default();
 var port = process.env.PORT || 3000;
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use(cors_1.default());
 app.use(morgan_1.default('dev'));
 app.use('/', teamsRoute_1.teamsRoute);

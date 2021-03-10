@@ -16,6 +16,11 @@ router.get('/', (req: Request, res: Response) => {
     });
 });
 
+router.post('/', (req: Request, res: Response) => {
+  console.log(req.body);
+  res.send('hi');
+});
+
 router.get('/:id', (req: Request, res: Response) => {
   const query = req.params.id;
   getPlayerByName(query)
@@ -36,10 +41,6 @@ router.delete('/:id', (req: Request, res: Response) => {
     .catch((err) => {
       console.log(err);
     });
-});
-
-router.post('/players', (req: Request, res: Response) => {
-  console.log(req.body.params);
 });
 
 export { router as playersRoute };
