@@ -22,4 +22,14 @@ ORDER BY players;
   });
 };
 
-export { getTeams, getPlayersByTeamID };
+const deleteTeamById = (id: number) => {
+  const sql = `
+  DELETE FROM teams WHERE id=${id};
+`;
+
+  return pool.query(sql).then((res) => {
+    return res;
+  });
+};
+
+export { getTeams, getPlayersByTeamID, deleteTeamById };

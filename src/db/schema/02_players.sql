@@ -7,5 +7,7 @@ CREATE TABLE players (
   player_name       VARCHAR(255) NOT NULL,
   team_ID           INT,
   CONSTRAINT fk_team
-  FOREIGN KEY (team_ID) REFERENCES teams(id)
+  FOREIGN KEY (team_ID) 
+  REFERENCES teams(id)
+  ON DELETE SET NULL
 );
