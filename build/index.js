@@ -35,7 +35,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(cors_1.default());
 app.use(morgan_1.default('dev'));
-app.use('/', teamsRoute_1.teamsRoute);
+app.use('/teams', teamsRoute_1.teamsRoute);
 app.use('/players', playersRoute_1.playersRoute);
 app.listen(port, function () {
     console.log("Listening on Port " + port);

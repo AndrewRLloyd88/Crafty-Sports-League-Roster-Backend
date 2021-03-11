@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
 
-app.use('/', teamsRoute);
+app.use('/teams', teamsRoute);
 
 app.use('/players', playersRoute);
 
