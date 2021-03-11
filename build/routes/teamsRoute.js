@@ -17,3 +17,13 @@ router.get('/', function (req, res) {
         console.log(err);
     });
 });
+router.get('/:id', function (req, res) {
+    var id = parseInt(req.params.id);
+    teamsQueries_1.getPlayersByTeamID(id)
+        .then(function (players) {
+        res.send(players);
+    })
+        .catch(function (err) {
+        console.log(err);
+    });
+});
