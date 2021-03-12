@@ -52,4 +52,22 @@ const createPlayerWithTeam = (player_name: string, team_id: number) => {
   });
 };
 
-export { getPlayers, getPlayerByName, deletePlayerById, createPlayerWithTeam };
+const updatePlayerTeam = (player_id: number, team_id: number) => {
+  const sql = `
+UPDATE players
+SET team_ID = ${team_id}
+WHERE id=${player_id};
+`;
+
+  return pool.query(sql).then((res) => {
+    return res;
+  });
+};
+
+export {
+  getPlayers,
+  getPlayerByName,
+  deletePlayerById,
+  createPlayerWithTeam,
+  updatePlayerTeam,
+};

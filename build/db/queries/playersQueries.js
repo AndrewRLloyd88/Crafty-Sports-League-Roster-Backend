@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createPlayerWithTeam = exports.deletePlayerById = exports.getPlayerByName = exports.getPlayers = void 0;
+exports.updatePlayerTeam = exports.createPlayerWithTeam = exports.deletePlayerById = exports.getPlayerByName = exports.getPlayers = void 0;
 var db_1 = __importDefault(require("../db"));
 //get all players and their associated teams
 var getPlayers = function () {
@@ -38,3 +38,10 @@ var createPlayerWithTeam = function (player_name, team_id) {
     });
 };
 exports.createPlayerWithTeam = createPlayerWithTeam;
+var updatePlayerTeam = function (player_id, team_id) {
+    var sql = "\nUPDATE players\nSET team_ID = " + team_id + "\nWHERE id=" + player_id + ";\n";
+    return db_1.default.query(sql).then(function (res) {
+        return res;
+    });
+};
+exports.updatePlayerTeam = updatePlayerTeam;

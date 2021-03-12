@@ -4,6 +4,7 @@ import {
   getPlayerByName,
   deletePlayerById,
   createPlayerWithTeam,
+  updatePlayerTeam,
 } from '../db/queries/playersQueries';
 const router = express.Router();
 
@@ -31,6 +32,17 @@ router.post('/', (req: Request, res: Response) => {
 router.get('/:id', (req: Request, res: Response) => {
   const query = req.params.id;
   getPlayerByName(query)
+    .then((player) => {
+      res.send(player);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.put('/:id', (req: Request, res: Response) => {
+  const { player_id, team_id } = req.body;
+  updatePlayerTeam(player_id, team_id)
     .then((player) => {
       res.send(player);
     })

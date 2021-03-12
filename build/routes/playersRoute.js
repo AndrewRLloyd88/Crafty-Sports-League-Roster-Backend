@@ -37,6 +37,16 @@ router.get('/:id', function (req, res) {
         console.log(err);
     });
 });
+router.put('/:id', function (req, res) {
+    var _a = req.body, player_id = _a.player_id, team_id = _a.team_id;
+    playersQueries_1.updatePlayerTeam(player_id, team_id)
+        .then(function (player) {
+        res.send(player);
+    })
+        .catch(function (err) {
+        console.log(err);
+    });
+});
 router.delete('/:id', function (req, res) {
     var id = parseInt(req.params.id);
     playersQueries_1.deletePlayerById(id)
