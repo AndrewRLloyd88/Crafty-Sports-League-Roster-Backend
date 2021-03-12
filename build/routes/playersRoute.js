@@ -37,7 +37,7 @@ router.get('/:id', function (req, res) {
         console.log(err);
     });
 });
-router.put('/:id', function (req, res) {
+router.put('/update/team', function (req, res) {
     var _a = req.body, player_id = _a.player_id, team_id = _a.team_id;
     playersQueries_1.updatePlayerTeam(player_id, team_id)
         .then(function (player) {

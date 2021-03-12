@@ -1,7 +1,7 @@
 import pool from '../db';
 
 const getTeams = () => {
-  const sql = 'SELECT * FROM teams;';
+  const sql = 'SELECT * FROM teams ORDER BY team_name;';
 
   return pool.query(sql).then((res) => {
     return res.rows;

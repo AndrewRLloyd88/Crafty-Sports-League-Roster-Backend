@@ -40,7 +40,7 @@ router.get('/:id', (req: Request, res: Response) => {
     });
 });
 
-router.put('/:id', (req: Request, res: Response) => {
+router.put('/update/team', (req: Request, res: Response) => {
   const { player_id, team_id } = req.body;
   updatePlayerTeam(player_id, team_id)
     .then((player) => {
