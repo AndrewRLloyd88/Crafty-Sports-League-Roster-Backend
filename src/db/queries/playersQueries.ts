@@ -52,7 +52,7 @@ const createPlayerWithTeam = (player_name: string, team_id: number) => {
   });
 };
 
-const updatePlayerTeam = (player_id: number, team_id: number) => {
+const updatePlayerTeam = (player_id: number, team_id: number | null) => {
   const sql = `
 UPDATE players
 SET team_ID = ${team_id}
