@@ -19,8 +19,9 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.post('/', (req: Request, res: Response) => {
-  const { player_name, team_ID } = req.body;
-  createPlayerWithTeam(player_name, team_ID)
+  const { playerName, teamID } = req.body;
+  console.log(playerName, teamID);
+  createPlayerWithTeam(playerName, teamID)
     .then((newPlayer) => {
       res.send(newPlayer);
     })
