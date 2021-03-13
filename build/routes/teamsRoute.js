@@ -17,6 +17,16 @@ router.get('/', function (req, res) {
         console.log(err);
     });
 });
+router.post('/', function (req, res) {
+    var teamName = req.body.teamName;
+    teamsQueries_1.createTeam(teamName)
+        .then(function (newTeam) {
+        res.send(newTeam);
+    })
+        .catch(function (err) {
+        console.log(err);
+    });
+});
 router.get('/:id', function (req, res) {
     var id = parseInt(req.params.id);
     teamsQueries_1.getPlayersByTeamID(id)

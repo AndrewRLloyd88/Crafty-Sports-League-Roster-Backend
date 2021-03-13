@@ -19,7 +19,6 @@ router.get('/', function (req, res) {
 });
 router.post('/', function (req, res) {
     var _a = req.body, playerName = _a.playerName, teamID = _a.teamID;
-    console.log(playerName, teamID);
     playersQueries_1.createPlayerWithTeam(playerName, teamID)
         .then(function (newPlayer) {
         res.send(newPlayer);

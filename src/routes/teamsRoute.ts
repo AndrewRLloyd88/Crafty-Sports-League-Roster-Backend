@@ -20,8 +20,8 @@ router.get('/', (req: Request, res: Response) => {
 router.post('/', (req: Request, res: Response) => {
   const { teamName } = req.body;
   createTeam(teamName)
-    .then((newPlayer) => {
-      res.send(newPlayer);
+    .then((newTeam) => {
+      res.send(newTeam);
     })
     .catch((err) => {
       console.log(err);
