@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTeamById = exports.getPlayersByTeamID = exports.getTeams = void 0;
 var db_1 = __importDefault(require("../db"));
 var getTeams = function () {
-    var sql = 'SELECT * FROM teams ORDER BY team_name;';
+    var sql = 'SELECT * FROM teams;';
     return db_1.default.query(sql).then(function (res) {
         return res.rows;
     });

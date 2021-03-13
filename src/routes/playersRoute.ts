@@ -30,8 +30,8 @@ router.post('/', (req: Request, res: Response) => {
     });
 });
 
-router.get('/:id', (req: Request, res: Response) => {
-  const query = req.params.id;
+router.get('/search', (req: Request, res: Response) => {
+  const query: any = req.query.name;
   getPlayerByName(query)
     .then((player) => {
       res.send(player);

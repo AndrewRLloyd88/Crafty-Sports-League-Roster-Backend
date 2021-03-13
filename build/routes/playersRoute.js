@@ -18,8 +18,9 @@ router.get('/', function (req, res) {
     });
 });
 router.post('/', function (req, res) {
-    var _a = req.body, player_name = _a.player_name, team_ID = _a.team_ID;
-    playersQueries_1.createPlayerWithTeam(player_name, team_ID)
+    var _a = req.body, playerName = _a.playerName, teamID = _a.teamID;
+    console.log(playerName, teamID);
+    playersQueries_1.createPlayerWithTeam(playerName, teamID)
         .then(function (newPlayer) {
         res.send(newPlayer);
     })
@@ -27,8 +28,8 @@ router.post('/', function (req, res) {
         console.log(err);
     });
 });
-router.get('/:id', function (req, res) {
-    var query = req.params.id;
+router.get('/search', function (req, res) {
+    var query = req.query.name;
     playersQueries_1.getPlayerByName(query)
         .then(function (player) {
         res.send(player);
