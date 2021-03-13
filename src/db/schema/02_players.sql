@@ -6,6 +6,7 @@ CREATE TABLE players (
   id                SERIAL PRIMARY KEY NOT NULL,
   player_name       VARCHAR(255) NOT NULL,
   team_ID           INT,
+  FOREIGN KEY (team_ID) 
   REFERENCES teams(id)
   ON DELETE SET NULL
 );
