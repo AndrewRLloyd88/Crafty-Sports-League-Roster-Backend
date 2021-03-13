@@ -22,6 +22,16 @@ ORDER BY players;
   });
 };
 
+const createTeam = (name: string) => {
+  const sql = `
+  insert into teams (team_name) values ($1) RETURNING *;
+  `;
+
+  return pool.query(sql, [name]).then((response) => {
+    return response.rows;
+  });
+};
+
 const deleteTeamById = (id: number) => {
   const sql = `
   DELETE FROM teams WHERE id=${id};
@@ -32,4 +42,4 @@ const deleteTeamById = (id: number) => {
   });
 };
 
-export { getTeams, getPlayersByTeamID, deleteTeamById };
+export { getTeams, getPlayersByTeamID, createTeam, deleteTeamById };
