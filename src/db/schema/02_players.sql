@@ -8,5 +8,4 @@ CREATE TABLE players (
   team_ID           INT,
   FOREIGN KEY (team_ID) 
   REFERENCES teams(id)
-  ON DELETE SET NULL
 );
